@@ -1,5 +1,6 @@
 <?php
 include("php/connect.php");
+
 $img_source=$website;
 $news_id=$_POST["news_id"];
 $news_title=htmlspecialchars($_POST["news_title"]);
@@ -35,7 +36,7 @@ else
     //没有出错
     //加限制条件
     //判断上传文件类型为png或jpg且大小不超过1024000B
-    if(($_FILES["file"]["type"]=="image/png"||$_FILES["file"]["type"]=="image/jpeg")&&$_FILES["file"]["size"]<1024000)
+    if(($_FILES["file"]["type"]=="image/png"||$_FILES["file"]["type"]=="image/jpeg")&&$_FILES["file"]["size"]<2048000)
     {
         //防止文件名重复
         $filename_gbk =date('ymd_his', time())."_".rand(1000, 9999)."_".$_FILES["file"]["name"];
@@ -62,6 +63,19 @@ else
     }
 }
 
+
+// 裁剪图片
+if(isset($file_url)){
+    include("php/imgcut.php");
+    $source = $file_url;
+    
+    $width = 360; // 裁剪后的宽度
+    $height = 413;// 裁剪后的高度
+    // 裁剪后的图片存放目录
+    $target = $file_url;
+    
+    image_center_crop($source, $width, $height, $target);
+}
 
 
 

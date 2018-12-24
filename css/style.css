@@ -333,7 +333,7 @@ html,body{min-width:1200px;height:100%;background:#fff; overflow-x: hidden;}
 .news-show .show-cd li{box-sizing:border-box;float:left;width:170px;height:16px;padding-left:26px;font-size:16px;line-height: 16px;font-weight: bold;color:#ccc;}
 .news-show .show-cd li:nth-child(1){background:url(../images/show1.png) no-repeat;margin-left:155px;}
 .news-show .show-cd li:nth-child(2){background:url(../images/show2.png) no-repeat;margin-left:224px;}
-.news-show .show-cd li:nth-child(3){background:url(../images/show3.png) no-repeat;margin-left:207px;}
+.news-show .show-cd li:nth-child(3){background:url(../images/show3.png) no-repeat;width:240px;margin-left:207px;}
 .news-show .news-show-d{margin-top:65px;}
 .news-show .news-show-d p{text-indent: 2em;font-size:20px;line-height: 36px;margin-bottom: 20px;color:#666;}
 .news-show .wz-bq{font-size:16px;color:#333;line-height: 36px;}
