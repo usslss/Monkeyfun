@@ -1,0 +1,28 @@
+   <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+            <title></title>
+    <script>
+    window.onload = function(){
+            var aLi = document.getElementsByTagName('li');
+            
+            for (var i=0;i<aLi.length;i++){
+                    (function(i){
+                            aLi[i].onclick = function(){
+                                    alert(this.getAttribute("room_type"));
+                                    $("#隐藏域id").val(this.getAttribute("room_type"));
+                            };
+                    })(i);
+            }
+            };
+    </script>
+            
+    </head>
+    <body>
+            <ul>
+                    <li room_type="111">123</li>
+                    <li data-id="222">456</li>
+                    <li data-id="333">789</li>
+            </ul>
+    </body>
+    </html>

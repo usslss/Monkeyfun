@@ -3,10 +3,12 @@ $class_about="";
 $class_join="";
 $class_news="";
 $class_reservation="";
+$class_roomtype="";
 if ($page=='about'){$class_about="active";};
 if ($page=='join'){$class_join="active";};
 if ($page=='news'){$class_news="active";};
 if ($page=='reservation'){$class_reservation="active";};
+if ($page=='roomtype'){$class_roomtype="active";};
 
 
 ?>
@@ -46,6 +48,9 @@ if ($page=='reservation'){$class_reservation="active";};
 						</li>
 						<li class="<?php echo $class_news;?>">
 							<a href="news.php">最新资讯</a>
+						</li>
+						<li class="<?php echo $class_roomtype;?>">
+							<a href="roomtype.php">房间类型</a>
 						</li>
 						<li class="<?php echo $class_reservation;?>">
 							<a href="reservation.php">预约入住</a>

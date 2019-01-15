@@ -172,7 +172,7 @@ $page="join";
 			</div>
 
 			<!-- Swiper JS -->
-			<script src="js/swiper.min.js"></script>
+			
 
 			<!-- Initialize Swiper -->
 			<script>

@@ -14,6 +14,16 @@ $page="about";
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/banner.js"></script>
 		<script type="text/javascript" src="js/wow.min.js"></script>
+		<script src="js/jquery.lazyload.js" type="text/javascript"></script> 
+		
+<script>
+    $(function(){
+        $("img.lazy").lazyload({
+			event : "click"
+		});
+    })
+</script>
+
 		<script>
 			if(!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
 				new WOW().init();
@@ -23,8 +33,12 @@ $page="about";
 	</head>
 
 	<body>
-		<!-- 头部 -->
+	
+
+		
+		<!-- 头部 -->	
 		<?php include_once("php/header.php");?>
+
 		<!-- 内页banner -->
 		<div class="ny-banner">
 			<img src="images/about-banner.jpg" class="ny-bg">
@@ -35,6 +49,8 @@ $page="about";
 			</div>
 		</div>
 		<!--关于我们-->
+
+
 		<div class="about w-1200">
 			<div class="about-z floatL">
 				<h3>年轻人的第一套租赁公寓/宿所</h3>
@@ -47,12 +63,14 @@ $page="about";
 					<br> 趣猴这一品牌产品.
 				</p>
 				<div class="about-img1">
-					<img src="images/about2.jpg">
+				<img class="lazy" src="images/about2.jpg" alt="BMW M1 Hood">
+
 				</div>
 			</div>
 			<div class="about-y floatR">
 				<div class="about-img2">
-					<img src="images/about1.jpg">
+					<img class="lazy" src="" data-original="images/about1.jpg" style="width:500px;height:500px;">
+					
 					<div class="clearfix"></div>
 				</div>
 				<h3>新青年灵感生活社区</h3>
@@ -68,7 +86,7 @@ $page="about";
 			</div>
 			<div class="clearfix"></div>
 			<div class="about-img3">
-				<img src="images/about3.jpg">
+				<img src="images/about3.jpg" />
 			</div>
 			<img src="images/about4.jpg" style="width:870px;height:56px;margin:40px auto;display:block;">
 		</div>
