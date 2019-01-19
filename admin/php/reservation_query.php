@@ -57,6 +57,7 @@ if ($msglink->num_rows > 0) {
         "\"reservation_idnum\":\"".$row["idnum"]."\",".
         "\"reservation_phone\":\"".$row["phone"]."\",".
         "\"reservation_address\":\"".$row["address"]."\",".
+        "\"reservation_roomtype\":\"".$row["roomtype"]."\",".
         "\"reservation_process\":\"".$row["process"]."\",".
         "\"reservation_addtime\":\"".$row["addtime"]."\"},";
         }

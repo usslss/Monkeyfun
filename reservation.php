@@ -107,8 +107,8 @@ $page="reservation";
 				<li room_type="公寓C">
 					<a href="javascript:void(0)">公寓C</a>
 				</li>
-				<li room_type="双人房">
-					<a href="javascript:void(0)">双人房</a>
+				<li room_type="双人间">
+					<a href="javascript:void(0)">双人间</a>
 				</li>
 				<li room_type="三人间">
 					<a href="javascript:void(0)">三人间</a>

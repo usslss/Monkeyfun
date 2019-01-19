@@ -25,6 +25,12 @@
 				<li>
 					<a href="news.php">最新资讯</a>
 				</li>
+				<li>
+					<a href="roomtype.php">房间类型</a>
+				</li>
+				<li>
+					<a href="reservation.php">预约入住</a>
+				</li>
 			</ul>
 		</div>
 		<script type="text/javascript">

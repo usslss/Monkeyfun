@@ -2,11 +2,11 @@
 include_once("../connect.php");
 
 $process="预约中";
-
+$address="趣猴杭州良渚店";
 @$name = htmlspecialchars(trim($_POST['name']));
 @$idnum = htmlspecialchars(trim($_POST['idnum']));
 @$phone = htmlspecialchars(trim($_POST['phone']));
-@$address = htmlspecialchars(trim($_POST['address']));
+@$reservation_roomtype = htmlspecialchars(trim($_POST['reservation_roomtype']));
 
 
 
@@ -45,8 +45,29 @@ if(preg_match($checkphone,$phone)){
     exit;
 }
 
-if(empty($address)){
-    echo "请填写您的预约城市!";
+
+if (empty($reservation_roomtype)) {
+    echo "请选择您的房型!";
+    exit;
+}
+
+//指定房型信息
+
+$sql_room = "SELECT * FROM roomtype WHERE room_type='{$reservation_roomtype}'";
+$result = mysqli_query($link, $sql_room);
+
+while ($row = mysqli_fetch_assoc($result)) {
+
+    $room_type = $row["room_type"];
+    $room_reserved = $row["room_reserved"];
+    $room_checked = $row["room_checked"];
+    $room_empty = $row["room_empty"];
+    $room_all = $row["room_all"];
+
+}
+
+if ($room_empty == 0) {
+    echo "该房型已满,请选择其他房型!";
     exit;
 }
 
@@ -57,7 +78,11 @@ if($RepeatIdnumCheck[0]!=0){
     exit;
 }
 
-$sql=mysqli_query($link,"insert into reservation(name,idnum,phone,address,process)values('$name','$idnum','$phone','$address','$process')");
+$room_reserved = $room_reserved + 1;
+$room_empty = $room_empty - 1;
+
+$sql_room = mysqli_query($link, "UPDATE roomtype SET room_reserved='$room_reserved',room_empty='$room_empty' WHERE room_type='$room_type'");
+$sql=mysqli_query($link,"insert into reservation(name,idnum,phone,address,process,roomtype)values('$name','$idnum','$phone','$address','$process','$room_type')");
 $result="提交成功";
 mysqli_close($link);
 echo $result;

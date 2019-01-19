@@ -1,4 +1,4 @@
-/* 输入框默认字体 */
+﻿/* 输入框默认字体 */
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */
     color:    #666;
 }
@@ -54,50 +54,50 @@ ul,ol {list-style:none;}
 @font-face
 {
 	font-family:pingfang-r;
-	src: url('../fonts/PingFang Regular.ttf')
-		,url('../fonts/PingFang Regular.eot'); /* IE9 */
+	src: url('../fonts/pingfang regular.ttf')
+		,url('../fonts/pingfang regular.eot'); /* IE9 */
 }
 @font-face
 {
 	font-family:pingfang-l;
-	src: url('../fonts/PingFang Light.ttf')
-		,url('../fonts/PingFang Light.eot'); /* IE9 */
+	src: url('../fonts/pingfang light.ttf')
+		,url('../fonts/pingfang light.eot'); /* IE9 */
 }
 @font-face
 {
 	font-family:pingfang-m;
-	src: url('../fonts/PingFang Medium.ttf')
-		,url('../fonts/PingFang Medium.eot'); /* IE9 */
+	src: url('../fonts/pingfang medium.ttf')
+		,url('../fonts/pingfang medium.eot'); /* IE9 */
 }
 @font-face
 {
 	font-family:pingfang-h;
-	src: url('../fonts/PingFang Heavy.ttf')
-		,url('../fonts/PingFang Heavy.eot'); /* IE9 */
+	src: url('../fonts/pingfang heavy.ttf')
+		,url('../fonts/pingfang heavy.eot'); /* IE9 */
 }
 @font-face
 {
 	font-family:pingfang-e;
-	src: url('../fonts/PingFang ExtraLight.ttf')
-		,url('../fonts/PingFang ExtraLight.eot'); /* IE9 */
+	src: url('../fonts/pingfang extralight.ttf')
+		,url('../fonts/pingfang extralight.eot'); /* IE9 */
 }
 @font-face
 {
 	font-family:pingfang-b;
-	src: url('../fonts/PingFang Bold.ttf')
-		,url('../fonts/PingFang Bold.eot'); /* IE9 */
+	src: url('../fonts/pingfang bold.ttf')
+		,url('../fonts/pingfang bold.eot'); /* IE9 */
 }
 @font-face
 {
 	font-family:yinwen-a;
-	src: url('../fonts/HTOWERT.ttf')
-		,url('../fonts/HTOWERT.eot'); /* IE9 */
+	src: url('../fonts/htowert.ttf')
+		,url('../fonts/htowert.eot'); /* IE9 */
 }
 @font-face
 {
 	font-family:yinwen-b;
-	src: url('../fonts/HTOWERTI.ttf')
-		,url('../fonts/HTOWERTI.eot'); /* IE9 */
+	src: url('../fonts/htowerti.ttf')
+		,url('../fonts/htowerti.eot'); /* IE9 */
 }
 
 
@@ -107,7 +107,7 @@ header nav{position:absolute;left:0.21rem;top:0.26rem;}
 header nav img{width:0.38rem;height:0.3rem;}
 header .logo{width:1.35rem;height:0.48rem;position:absolute;left:50%;margin-left:-0.675rem;top:0.16rem;}
 
-.xl-nav{position:fixed;top:0.8rem;left:0;width:100%;background:rgba(26,26,26,0.7);height:3rem;box-sizing: border-box;padding:0.6rem 0; display:none;z-index:99999;}
+.xl-nav{position:fixed;top:0.8rem;left:0;width:100%;background:rgba(26,26,26,0.7);height:4rem;box-sizing: border-box;padding:0.6rem 0; display:none;z-index:99999;}
 .xl-nav li{width:100%;text-align: center;height:0.6rem;font-size:0.3rem;line-height: 0.6rem;}
 .xl-nav li a{color:#fff;}
 
@@ -312,3 +312,62 @@ white-space: nowrap;-webkit-transition: all .5s linear;
 
 .yuyue .fy{position:fixed;bottom:0.5rem;left:50%;margin-left:-2.08rem;}
 .yuyue .fy a.cc{background:rgba(229,229,229,0.6);}
+
+/*新加样式*/
+.room-banner{width:100%;height:100vh;background:url(../images/roomtype.jpg) no-repeat;background-size:100% 100%; overflow: hidden;position:relative;}
+.room-banner .wz{color:#fff;text-align: center;position:absolute;left:50%;margin-left:-2.5rem;width:5.0rem;height:0.8rem;top:50%;margin-top:-0.4rem;}
+.room-banner .wz p{font-size:0.72rem;font-family: pingfang-l;line-height: 0.8rem;}
+.room-banner .down{display:block;width:26px;height:28px;position:absolute;left:50%;margin-left:-13px;bottom:1rem;z-index:9998; animation: myfirst 2s infinite;}
+
+/*房间类型*/
+.room{padding:0.6rem 0;text-align: center;}
+.room .r-title{display: inline-block;width:4.85rem;margin:0 auto 0.6rem;}
+.room .xz{width:100%;text-align:center;height:0.48rem; overflow: hidden;margin-bottom: 0.4rem;background:#ffb629;border-radius: 4px;line-height: 0.48rem;}
+.room .xz a{display:block;float:left;width:33.33%;color:#fff;font-size:14px;}
+.room ul.jg{}
+.room ul.jg li{width:100%;height:0.68rem;background:#f7f7f7;border-radius: 4px;text-align: left;position:relative;margin-bottom: 10px;line-height:0.68rem;}
+.room ul.jg li span{display:block;float:left;text-align:center;width:33.33%;height:0.68rem;color:#333333;font-size:12px;overflow: hidden;}
+.room ul.jg li span b{font-weight: normal;color:#999;font-size:14px;}
+
+.room ul.lx{margin-top:0.4rem;}
+.room ul.lx li{margin-bottom:0.2rem;float:left;width:100%;height:320px;box-sizing: border-box;border-radius: 8px;border:1px solid #ccc; overflow: hidden;margin-right: 19px;}
+
+.room ul.lx .img{width:385px;height:276px; overflow: hidden;}
+.room ul.lx .word{height:44px;line-height: 44px;padding:0 30px;}
+.room ul.lx .word p{color:#333;font-size:14px;float:left;}
+.room ul.lx .word span{color:#ffb629;font-size:20px;float:right;}
+.room ul.lx .word span b{font-weight: normal;color:#333;font-size:14px;}
+
+/*提交预约*/
+.tjyy{padding:0.6rem 0;text-align: center;position:relative;}
+.tjyy .r-title{display: inline-block;width:4.85rem;margin:0 auto 0.6rem;}
+.tjyy .lw{width:3.11rem;margin:0 auto 0.4rem; }
+.tjyy ul.bd{margin-bottom: 30px;}
+.tjyy ul.bd li{width:100%;margin-bottom:0.4rem;}
+
+.tjyy ul.bd li span{font-family:pingfang-l;color:#999;font-size:18px;display:block;text-align: left;line-height: 18px;}
+.tjyy ul.bd li input{width:100%;height:53px;box-sizing: border-box;border-radius: 4px;border:1px solid #c2c2c2;padding:0 20px;font-size:20px;color:#f8cf73;}
+.tjyy ul.bd li input::-webkit-input-placeholder{color:#999;}    /* 使用webkit内核的浏览器 */
+.tjyy ul.bd li input:-moz-placeholder{color:#999;}                  /* Firefox版本4-18 */
+.tjyy ul.bd li input::-moz-placeholder{color:#999;}                  /* Firefox版本19+ */
+.tjyy ul.bd li input:-ms-input-placeholder{color:#999;}           /* IE浏览器 */
+.tjyy ul.bd li input:focus{border:1px solid #f8cf73;}
+.tjyy ul.xzlx{margin-bottom: 20px;}
+.tjyy ul.xzlx span{font-family:pingfang-l;color:#999;font-size:18px;display:block;text-align: left;margin-bottom: 10px;line-height: 18px;}
+.tjyy ul.xzlx li{cursor:pointer;float:left;width:48%;height:1rem;line-height: 1rem;box-sizing: border-box;border-radius: 4px;border:1px solid #c2c2c2;margin-right: 4%;margin-bottom: 0.4rem;}
+.tjyy ul.xzlx li:nth-child(2n+1){margin-right: 0;}
+.tjyy ul.xzlx li a{display:block;font-family:pingfang-l;color:#999;font-size:20px;height:1rem;line-height: 1rem;}
+.tjyy ul.xzlx li:nth-child(7){margin-right: 0;}
+.tjyy ul.xzlx li.active,.tjyy ul.xzlx li:hover{border:1px solid #f8cf73;}
+.tjyy ul.xzlx li.active a,.tjyy ul.xzlx li:hover a{color:#F8CF73;}
+.tjyy a.ck{font-size:14px;color:#999;display:block;text-align: left;text-decoration:underline;font-family:pingfang-r;}
+
+.tjyy button{display:block;width:4.2rem;height:0.66rem;text-align: center;background:#ffb629;border-radius: 0.33rem;color:#fff;font-size:14px;line-height: 0.66rem;font-family:pingfang-b;margin:0.45rem auto 2.4rem;cursor: pointer;}
+.tjyy .tj{display:block;width:4.2rem;height:0.66rem;text-align: center;background:#ffb629;border-radius: 0.33rem;color:#fff;font-size:14px;line-height: 0.66rem;font-family:pingfang-b;margin:0.45rem auto 2.4rem;cursor: pointer;}
+
+
+/*新加样式*/
+.yuyuec-banner{width:100%;height:100vh;background:url(../images/yuyuec.jpg) no-repeat;background-size:100% 100%; overflow: hidden;position:relative;}
+.yuyuec-banner .wz{color:#fff;text-align: center;position:absolute;left:50%;margin-left:-2.5rem;width:5.0rem;height:0.8rem;top:50%;margin-top:-0.4rem;}
+.yuyuec-banner .wz p{font-size:0.72rem;font-family: pingfang-l;line-height: 0.8rem;}
+.yuyuec-banner .down{display:block;width:26px;height:28px;position:absolute;left:50%;margin-left:-13px;bottom:1rem;z-index:9998; animation: myfirst 2s infinite;}
