@@ -1,9 +1,27 @@
+<?php
+
+include('php/identify.php');
+
+//获取关键词的页面和网站属性
+$sql_getLinkWebsite="SELECT DISTINCT link_website FROM link";
+$result1=mysqli_query($link, $sql_getLinkWebsite);
+
+$i=0;
+while ($row=mysqli_fetch_assoc($result1)){
+    $websiteArr[$i]=$row["link_website"];
+    $i++;
+}
+   
+$website_sum=$i;
+
+?>
+
 <!DOCTYPE html>
 <html>
   
   <head>
     <meta charset="UTF-8">
-    <title>img_page</title>
+    <title>link_list</title>
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
@@ -24,9 +42,9 @@
     <div class="x-nav">
       <span class="layui-breadcrumb">
         <a target="_parent" href="index.php">首页</a>
-        <a href="img_list.php">预约管理</a>
+        <a href="link_list.php">页面管理</a>
         <a>
-          <cite>预约列表</cite></a>
+          <cite>友情链接</cite></a>
       </span>
       <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right" href="javascript:location.replace(location.href);" title="刷新">
         <i class="layui-icon" style="line-height:30px">ဂ</i></a>
@@ -36,38 +54,94 @@
     
 
 
+
+
+
+<!--  //按网站计算的 单项查询 
+ <div class="layui-row">
+        <form class="layui-form layui-col-md12 x-so layui-form-pane">
+
+
+
+
+
+          <div class="layui-input-inline">                     
+           
+            <select name="website">
+              <option>网站名</option>
+<?php			
+if (isset($_GET["website"])){
+    $query_website=$_GET["website"];
+}
+else{
+    $query_website="网站名";
+}
+/*
+for ($i=0;$i<$website_sum;$i++){    
+    if($websiteArr[$i]==$query_website){
+        echo <<< EOT
+        <option selected="selected">{$websiteArr[$i]}</option>
+EOT;
+    }
+        else {         
+            echo <<< EOT
+            <option>{$websiteArr[$i]}</option>
+EOT;
+        }
+    
+
+}
+*/
+?>               
+            </select>
+         
+          </div>
+          
+          <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i>搜索</button>
+            
+        </form>
+      </div>
+    
+-->
+
+
+
 <table class="layui-hide" id="LAY_table_user" lay-filter="useruv"></table>
 
 
 </div>
 
 
-
 <script type="text/html" id="barDemo">
-    <a class="layui-btn layui-btn-xs " onclick="" lay-event="detail"><i class="layui-icon">&#xe642;</i>编辑</a>
-    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
+<a class="layui-btn layui-btn-xs " lay-event="edit" method="post"><i class="layui-icon">&#xe642;</i>编辑</a>    
+<a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="del"><i class="layui-icon">&#xe640;</i>删除</a>
 </script>
 
 
 <script src="./lib/layui/layui.js"></script>
 
+
+
 <script>
+
+
+
+
+
     layui.use('table', function(){
         var table = layui.table;
 
         //方法级渲染
         table.render({
             elem: '#LAY_table_user'
-            ,url: 'php/reservation_query.php'
+            ,url: 'php/link/link_query.php'
+            ,method: 'get'
+            ,where: {website: '<?php echo $query_website;?>',xx:5 }
             ,cols: [[
-                {field:'reservation_id', title: '预约ID', sort: true, fixed: false,width:100}
-                ,{field:'reservation_name', title: '姓名', sort: false, fixed: false}
-                ,{field:'reservation_idnum', title: '身份证号', sort: false, fixed: false}
-                ,{field:'reservation_phone', title: '手机号', sort: false, fixed: false}
-                ,{field:'reservation_address', title: '预约门店',  sort: false, fixed: false}
-                ,{field:'reservation_roomtype', title: '房间类型', sort: true, fixed: false,width:100}
-                ,{field:'reservation_process', title: '预约状态', sort: false, fixed: false,width:100}
-                ,{field:'reservation_addtime', title: '预约时间', sort: true, fixed: false,width:180}
+                {field:'link_id', title: 'ID', sort: true, fixed: false,width:100}
+                ,{field:'link_name', title: '友情链接名称', sort: false, fixed: false,width:300}
+                ,{field:'link_url', title: '友情链接ID地址',  sort: false, fixed: false}   
+                ,{field:'link_website', title: '友情链接归属网站', sort: true, fixed: false,width:300}
                 ,{field:'right', title: '操作', width:178,align:'center',toolbar:"#barDemo", fixed: 'right'}
             ]]
             ,id: 'testReload'
@@ -113,28 +187,27 @@
         //监听工具条
         table.on('tool(useruv)', function(obj){
             var data = obj.data;
-            if(obj.event === 'detail'){
-                
-                var c='reservation_edit.php?reservation_id='+data.reservation_id;
-                x_admin_show('预约编辑',c,900,470);
-         
+            if(obj.event === 'edit'){
 
-                
+                var c='php/link/link_edit.php?link_id='+data.link_id;
+                x_admin_show('页面编辑',c,800,260);
+             	 
+             	               
             } else if(obj.event === 'del'){
-                layer.confirm('确定删除本条预约?', function(index){
+                layer.confirm('确定删除?', function(index){
                     console.log(data);
                     obj.del();
                     layer.close(index);
                     $.ajax({
-                        url: "reservation_delete.php",
+                        url: "php/link/link_delete.php",
                         type: "post",
-                        data:{"reservation_id":data.reservation_id},
+                        data:{"link_id":data.link_id},
                         dataType: "text",
                         
 
                     });
                 });
-            } else if(obj.event === 'edit'){
+            } else if(obj.event === 'editnouse'){
 
                 layer.prompt({
                     formType: 2
@@ -207,7 +280,7 @@
     
 </script>
 
-<script type="text/html" id="show-img"><img src="../{{d.img_url}}" /></script>
+
   
 </form>
 
@@ -227,6 +300,7 @@
       
       
       
+
 
  
 
